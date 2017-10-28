@@ -1,7 +1,7 @@
 # MorseCodeChat
-Anonymous chat with Morse Code. No usernames or anything else to get in the way- just two annoying sounds that get sent to every person on the server when you click a button. 
+Anonymous chat with Morse Code. Just your anonymous ID - nothing else to get in the way betwee you and two annoying sounds that get sent to every person on the server when you click a button. 
 
-In order to both send and receive tone messages, use Chrome. Firefox and other mobile browsers I've tested this with have not been able to send messages, though you will be able to hear any audio traffic. 
+Sending and receiving messages on mobile browsers is now possible. 
 
 # Requirements
 
