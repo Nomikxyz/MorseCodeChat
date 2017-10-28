@@ -1,39 +1,37 @@
-var express = require('express');
-var socket = require('socket.io');
+var express = require('express');  
+var app = express();  
+var server = require('http').createServer(app); 
+var io = require('socket.io')(server); 
 var fs = require('fs');
-var app = express();
-var server = app.listen(5000, function() {
-    console.log("Listening to requests on port 5000")
+
+app.use(express.static(__dirname + '/public')); 
+
+app.get('/', function(req, res,next) {  
+    res.sendFile(__dirname + '/public/index.html');
 });
 
-app.use(express.static('public'));
-
-var io = socket(server);
-
-io.on('connection', function(socket) {
-    console.log('New transmitter', socket.id);
-    fs.readFile(__dirname + '/public/sounds/trollism.wav', function(err, longbuf) {
-
-        socket.on('long', function(data) {
-            socket.broadcast.emit('long', data);
-            console.log("Long press from " + socket.id);
-            socket.broadcast.emit('audio file', {
-                audio: true,
-                audioBuffer: longbuf
-            });
-
-        });
-    });
-    fs.readFile(__dirname + '/public/sounds/trollism2.wav', function(err, shortbuf) {
-
-        socket.on('short', function(data) {
-            socket.broadcast.emit('long', data);
-            console.log("Short press from " + socket.id);
-            socket.broadcast.emit('audio file', {
+io.on('connection', function(socket) {  
+    socket.on('shortClick', function(data) {
+	console.log("Short press from " + socket.id);
+    	  fs.readFile(__dirname + '/public/sounds/trollism2.wav', function(err, shortbuf) {
+            io.emit('audio file', {
                 audio: true,
                 audioBuffer: shortbuf
             });
-
-        });
     });
 });
+    socket.on('longClick', function(data) {
+		  console.log("Long press from " + socket.id);
+    	  fs.readFile(__dirname + '/public/sounds/trollism.wav', function(err, longbuf) {
+            io.emit('audio file', {
+                audio: true,
+                audioBuffer: longbuf
+            });
+    });
+});
+});
+
+server.listen(5000, function(){
+  console.log('Listening on port 5000');
+}); 
+
