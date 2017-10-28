@@ -6,7 +6,9 @@ In order to both send and receive tone messages, use Chrome. Firefox and other m
 # Requirements
 
 Node
+
 Express.js
+
 Socket.io
 
 # How to use this thing
