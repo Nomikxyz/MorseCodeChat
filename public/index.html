@@ -6,6 +6,7 @@
 		<link rel="stylesheet" href="styles.css">
    </head>
    <body>	 
+		 <p id = "transmitters"></p>
 		 <button onclick="shortClick()">Short</button>
 		 <button onclick="longClick()">Long</button>
 		 <script src="/socket.io/socket.io.js"></script>
@@ -14,9 +15,11 @@
 			 
 			 function shortClick(){
 			   socket.emit('shortClick');
+			   document.getElementById("transmitters").innerHTML = socket.id + ' is currently transmitting';
 			 }
 			 function longClick(){
 			   socket.emit('longClick');
+			   document.getElementById("transmitters").innerHTML = socket.id + ' is currently transmitting';
 			 }
 			 
          var audioContext= new (window.AudioContext || window.webkitAudioContext)();
