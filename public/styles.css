@@ -1,0 +1,12 @@
+body{
+    font-family: 'Open Sans';
+}
+button{
+    background: #4fab51;
+    color: #fff;
+    font-size: 18px;
+    border: 0;
+    padding: 50px 0;
+    width: 25%;
+    border-radius: 0 0 2px 2px;
+}
