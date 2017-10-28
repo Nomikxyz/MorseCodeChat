@@ -1,5 +1,5 @@
 # MorseCodeChat
-Anonymous chat with Morse Code. Just your anonymous ID - nothing else to get in the way betwee you and two annoying sounds that get sent to every person on the server when you click a button. 
+Anonymous chat with Morse Code. Just your anonymous ID - nothing else to get in the way between you and two annoying sounds that get sent to every person on the server when you click a button. 
 
 Sending and receiving messages on mobile browsers is now possible. 
 
